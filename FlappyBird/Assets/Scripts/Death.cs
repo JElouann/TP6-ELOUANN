@@ -9,11 +9,12 @@ public class Death : MonoBehaviour
     [SerializeField]
     private GameObject Score;
 
+
+
     private void OnCollisionEnter(Collision collision)
     {
         
         End();
-        
     }
 
     private void End()
@@ -22,6 +23,6 @@ public class Death : MonoBehaviour
         Application.Quit();
         EditorApplication.isPlaying = false;
     }
-
-    
 }
+
+

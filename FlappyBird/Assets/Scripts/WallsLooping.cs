@@ -26,12 +26,6 @@ public class WallsLooping : MonoBehaviour
         StartCoroutine(SpawnWalls(_timeBtwnWallsSpawn));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private IEnumerator SpawnWalls(float TimeToWait)
     {
         while (true)
@@ -39,7 +33,6 @@ public class WallsLooping : MonoBehaviour
             yield return new WaitForSeconds(TimeToWait);
             _randomHeight = Random.Range(_startHeightMin, _startHeightMax);
             _clonedWall = Instantiate(_walls, new Vector3(12, _randomHeight, 0), Quaternion.identity);
-            //Debug.Log("Un mur est créé");
         }
     }
 }
