@@ -19,6 +19,11 @@ public class WallsTravel : MonoBehaviour
         StartCoroutine(Destroy());
     }
 
+    public void StopMove()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     private IEnumerator Destroy()
     {
         yield return new WaitForSeconds(1.9f);

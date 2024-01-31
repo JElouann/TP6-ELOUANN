@@ -8,16 +8,21 @@ public class Death : MonoBehaviour
 
     [SerializeField]
     private GameObject Score;
+ 
+    public CameraShake cameraShake;
 
+    [SerializeField]
+    private float ShakeDuration;
+    [SerializeField]
+    private float ShakeMagnitude;
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        End();
+        StartCoroutine(cameraShake.Shake(ShakeDuration, ShakeMagnitude));
     }
 
-    private void End()
+    public void End()
     {
         Score.SendMessage("PrintEndScore");
         Application.Quit();

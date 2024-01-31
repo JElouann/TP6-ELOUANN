@@ -19,6 +19,7 @@ public class WallsLooping : MonoBehaviour
 
     private GameObject _clonedWall;
 
+    public static List<GameObject> walls = new List<GameObject>();
 
 
     void Start()
@@ -33,6 +34,7 @@ public class WallsLooping : MonoBehaviour
             yield return new WaitForSeconds(TimeToWait);
             _randomHeight = Random.Range(_startHeightMin, _startHeightMax);
             _clonedWall = Instantiate(_walls, new Vector3(12, _randomHeight, 0), Quaternion.identity);
+            walls.Add(_clonedWall);
         }
     }
 }

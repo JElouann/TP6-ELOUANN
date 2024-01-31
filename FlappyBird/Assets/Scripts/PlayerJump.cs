@@ -12,11 +12,20 @@ public class Jump : MonoBehaviour
     private Vector3 _jumpForce;
     Rigidbody rb;
 
+    [SerializeField]
+    private bool IsReversed;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         _jumpForce = new Vector3(0,JumpForce ,0);
+        if (IsReversed)
+        {
+            Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y * -1, Physics.gravity.z);
+            _jumpForce *= -1;
+        }
     }
 
     // Update is called once per frame
