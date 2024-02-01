@@ -1,17 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Overlays;
+﻿using System.Collections;
 using UnityEngine;
 
 public class WallsTravel : MonoBehaviour
 {
+    public static int ReverseGravityCount = 15; //
+
+    [SerializeField] //
+    private GameObject Player; //
 
     [SerializeField]
     private float Speed;
 
     private Rigidbody rb;
     private void Start()
+
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(Speed, 0, 0);

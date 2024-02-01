@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -12,6 +10,7 @@ public class Score : MonoBehaviour
     Rigidbody rb;
 
     private int _score = 0;
+
 
     private void Start()
     {

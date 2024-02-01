@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-
-    public Death death;
+    [SerializeField]
+    private Death _death;
 
     public IEnumerator Shake(float duration, float magnitude)
     {
-        Debug.Log("shake");
         Vector3 _startPos = transform.localPosition;
 
         float elapsed = 0.0f;
@@ -26,7 +24,8 @@ public class CameraShake : MonoBehaviour
             yield return null;
         }
 
+        yield return new WaitForSeconds(0.25f);
         transform.localPosition = _startPos;
-        death.End();
+        _death.End();
     }
 }

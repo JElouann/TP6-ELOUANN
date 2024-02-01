@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-
+    [Header("UI")]
     [SerializeField]
     private GameObject Score;
- 
-    public CameraShake cameraShake;
-
+    [Header("Feedbacks")]
     [SerializeField]
-    private float ShakeDuration;
+    private float _cameraShakeDuration;
     [SerializeField]
-    private float ShakeMagnitude;
-
+    private float _cameraShakeMagnitude;
+    [SerializeField]
+    private SoundManager _soundManager;
+    [SerializeField]
+    private AudioClip _audioClip;
+    public CameraShake CameraShake;
 
     private void OnCollisionEnter(Collision collision)
     {
-        StartCoroutine(cameraShake.Shake(ShakeDuration, ShakeMagnitude));
+        _soundManager.PlaySound(_audioClip);
+        StartCoroutine(CameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
     }
 
     public void End()
@@ -29,5 +30,3 @@ public class Death : MonoBehaviour
         EditorApplication.isPlaying = false;
     }
 }
-
-
