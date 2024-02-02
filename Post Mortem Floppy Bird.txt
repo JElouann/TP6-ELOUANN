@@ -1,0 +1,43 @@
+J'avais à la base prévu d'avoir 5 classes :
+
+- "Pipes" pour créer et faire se déplacer les obstacles
+- "LoopPipes" pour renvoyer les obstacles à leur point de départ sur la scène, pour les faire boucler
+- "Death" pour détecter lorsque le joueur perd (et donc que son personnage "meurt")
+- "Player" pour tout ce qui touche aux physiques du personnage, très majoritairement son saut
+- "Score" pour tenir compte et afficher sur la scene le score du joueur
+
+
+Au final, on se retrouve avec ces 9 scripts :
+
+- "WallsLooping" pour instancier les obstacles
+	--> devait à la base être "Pipes", et posséder un float GapBtwn et un GameObject PipePrefab, a maintenant des floats _startHeightMin, _startHeightMax, _randomHeight, 	_timeBtwnWallsSpawn et des GameObject _walls et _clonedWall => ne fait pas se déplacer les obstacles
+
+- "WallsMovement" pour faire se déplacer les obstacles et les détruire à la fin dudit déplacement (PS : le script s'appelle aussi "Walls Travel" par endroit)
+
+- "PlayerPhysics" pour faire sauter le joueur (et accessoirement renverser la gravité dans l'editor)
+  	--> à la base avec juste un float JumpForce, maintenant en plus avec un GameObject _score, un Vector3 jumpForce, un rigidbody _rb, un SoundManager et un AUdioClip (et un booléen                	_isReversed)
+
+- "Death" pour détecter la défaite du joueur, activer quelques feedbacks et arrêter l'application
+	--> à la base sans champs, maintenant avec un GameObject _score, un SoundManager, un AudioClip et un CameraShake
+
+- "Score" pour mettre à jour le score du joueur et l'afficher (et afficher son score final dans la console)
+	--> n'a pas trop changé, j'ai juste rajouté un TextMeshProUGUI _text
+
+[que du feedback]
+- "CameraShake" pour faire secouer la caméra lorsque le joueur entre en collision avec un obstacle
+- "SoundManager" pour faire se joueur les deux SFXs (sert à moins disperser de code gérant l'audio dans les différents programmes)
+
+[pour l'UI]
+- "ChangeScene" pour changer de scene (passer du menu principal au jeu)
+
+
+De fait, on a des associations entre :
+
+- PlayerPhysics et Score
+		et SoundManager
+
+- Death et Score
+	et CameraShake
+	et SoundManager
+
+- WallsLooping et WallsMovement
