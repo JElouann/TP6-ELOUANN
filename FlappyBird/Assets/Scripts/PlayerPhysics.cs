@@ -4,47 +4,43 @@ public class PlayerPhysics : MonoBehaviour
 {
     [Header("Gameplay")]
     [SerializeField]
-    private float JumpForce;
+    private float _jumpForce;
     [SerializeField]
-    private GameObject Score;
-    private Vector3 _jumpForce;
-    Rigidbody rb;
+    private GameObject _score;
+    private Vector3 jumpForce;
+    private Rigidbody _rb;
     [SerializeField]
-    private bool IsReversed;
+    private bool _isReversed;
 
     [Header("Feedback")]
     [SerializeField]
-    private SoundManager SoundManager;
+    private SoundManager _soundManager;
     [SerializeField]
-    private AudioClip AudioClip;
+    private AudioClip _audioClip;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ReverseGravity()
     {
-        
-        rb = GetComponent<Rigidbody>();
-        _jumpForce = new Vector3(0,JumpForce ,0);
-        ReverseGravity();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (this._isReversed)
         {
-            //Debug.Log("Space");
-            SoundManager.PlaySound(AudioClip);
-            rb.AddForce(rb.transform.forward + _jumpForce, ForceMode.Impulse);
-            rb.velocity = new Vector3(0,0,0);
+            Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y * -1, Physics.gravity.z);
+            this.jumpForce *= -1;
         }
     }
 
-    public void ReverseGravity() //
+    private void Start()
     {
-        if (IsReversed)
+        this._rb = this.GetComponent<Rigidbody>();
+        this.jumpForce = new Vector3(0, this._jumpForce, 0);
+        this.ReverseGravity();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y * -1, Physics.gravity.z);
-            _jumpForce *= -1;
+            this._soundManager.PlaySound(this._audioClip);
+            this._rb.AddForce(this._rb.transform.forward + this.jumpForce, ForceMode.Impulse);
+            this._rb.velocity = new Vector3(0, 0, 0);
         }
     }
 }

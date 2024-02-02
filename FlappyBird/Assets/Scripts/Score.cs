@@ -3,29 +3,25 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-
     [SerializeField]
-    TextMeshProUGUI Text;
-
-    Rigidbody rb;
-
+    private TextMeshProUGUI _text;
+    private Rigidbody _rb;
     private int _score = 0;
 
+    public void PrintEndScore()
+    {
+        Debug.Log($"Score final : {this._score}");
+    }
 
     private void Start()
     {
-        Text.text = _score.ToString();
-        rb = GetComponent<Rigidbody>();
+        this._text.text = this._score.ToString();
+        this._rb = this.GetComponent<Rigidbody>();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _score += 1;
-        Text.text = _score.ToString();
-    }
-
-    public void PrintEndScore()
-    {
-        Debug.Log($"Score final : {_score}");
+        this._score += 1;
+        this._text.text = this._score.ToString();
     }
 }

@@ -8,6 +8,6 @@ public class ChangeScene : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene(_sceneName);
+        SceneManager.LoadScene(this._sceneName);
     }
 }

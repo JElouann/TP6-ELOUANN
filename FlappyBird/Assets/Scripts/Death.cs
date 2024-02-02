@@ -5,28 +5,25 @@ public class Death : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField]
-    private GameObject Score;
+    private GameObject _score;
     [Header("Feedbacks")]
-    [SerializeField]
-    private float _cameraShakeDuration;
-    [SerializeField]
-    private float _cameraShakeMagnitude;
     [SerializeField]
     private SoundManager _soundManager;
     [SerializeField]
     private AudioClip _audioClip;
-    public CameraShake CameraShake;
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        _soundManager.PlaySound(_audioClip);
-        StartCoroutine(CameraShake.Shake(_cameraShakeDuration, _cameraShakeMagnitude));
-    }
+    [SerializeField]
+    private CameraShake _cameraShake;
 
     public void End()
     {
-        Score.SendMessage("PrintEndScore");
+        // _score.SendMessage("PrintEndScore");
         Application.Quit();
         EditorApplication.isPlaying = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        this._soundManager.PlaySound(this._audioClip);
+        this.StartCoroutine(this._cameraShake.Shake());
     }
 }

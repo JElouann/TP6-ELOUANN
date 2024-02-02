@@ -408,12 +408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a972681d159f114a81d4b2bc9d070ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 211807304}
-  _cameraShakeDuration: 0
-  _cameraShakeMagnitude: 0
+  _score: {fileID: 0}
   _soundManager: {fileID: 0}
   _audioClip: {fileID: 0}
-  CameraShake: {fileID: 0}
+  _cameraShake: {fileID: 0}
 --- !u!114 &211807310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b66e399b6d874d4bbf15bdbc189f30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 507722315}
+  _text: {fileID: 0}
 --- !u!114 &211807311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,11 +437,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a01bfc511f8e143a95fcd116d79b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: -12.65
-  Score: {fileID: 507722313}
-  IsReversed: 0
-  SoundManager: {fileID: 0}
-  AudioClip: {fileID: 0}
+  _jumpForce: 0
+  _score: {fileID: 0}
+  _isReversed: 0
+  _soundManager: {fileID: 0}
+  _audioClip: {fileID: 0}
 --- !u!1 &273177942
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +981,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1959489156}
   - {fileID: 1314211010}
   - {fileID: 211807305}
   - {fileID: 590732884}
@@ -1246,6 +1243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _death: {fileID: 1959489159}
+  _cameraShakeDuration: 0.29
+  _cameraShakeMagnitude: 1.5
 --- !u!1 &1314211009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,12 +1396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a972681d159f114a81d4b2bc9d070ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 1314211009}
-  _cameraShakeDuration: 0
-  _cameraShakeMagnitude: 0
+  _score: {fileID: 0}
   _soundManager: {fileID: 0}
   _audioClip: {fileID: 0}
-  CameraShake: {fileID: 0}
+  _cameraShake: {fileID: 0}
 --- !u!114 &1314211015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,7 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b66e399b6d874d4bbf15bdbc189f30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 507722315}
+  _text: {fileID: 0}
 --- !u!114 &1314211016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,11 +1425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a01bfc511f8e143a95fcd116d79b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: -12.65
-  Score: {fileID: 507722313}
-  IsReversed: 0
-  SoundManager: {fileID: 0}
-  AudioClip: {fileID: 0}
+  _jumpForce: 0
+  _score: {fileID: 0}
+  _isReversed: 0
+  _soundManager: {fileID: 0}
+  _audioClip: {fileID: 0}
 --- !u!1 &1932529962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,13 +1670,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959489152}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -959.53, y: -540, z: 0}
-  m_LocalScale: {x: 1, y: 0.25, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.4699707, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.25000006, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2072279715}
-  m_Father: {fileID: 846822941}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!54 &1959489157
 Rigidbody:
@@ -1720,11 +1717,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a01bfc511f8e143a95fcd116d79b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 12.65
-  Score: {fileID: 507722313}
-  IsReversed: 0
-  SoundManager: {fileID: 1959489162}
-  AudioClip: {fileID: 8300000, guid: 55eeec1dd37beaf46b6ed6bd6334274f, type: 3}
+  _jumpForce: 15
+  _score: {fileID: 394313102}
+  _isReversed: 0
+  _soundManager: {fileID: 1959489162}
+  _audioClip: {fileID: 8300000, guid: 55eeec1dd37beaf46b6ed6bd6334274f, type: 3}
 --- !u!114 &1959489159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,12 +1734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a972681d159f114a81d4b2bc9d070ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 1959489152}
-  _cameraShakeDuration: 0.29
-  _cameraShakeMagnitude: 1.5
+  _score: {fileID: 394313102}
   _soundManager: {fileID: 1959489162}
   _audioClip: {fileID: 8300000, guid: 412b29dc8f945ce4da3dcde4e000d3e2, type: 3}
-  CameraShake: {fileID: 963194231}
+  _cameraShake: {fileID: 963194231}
 --- !u!114 &1959489160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,7 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b66e399b6d874d4bbf15bdbc189f30e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 507722315}
+  _text: {fileID: 507722315}
 --- !u!82 &1959489161
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6699,5 +6694,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 963194228}
   - {fileID: 705507995}
+  - {fileID: 1959489156}
   - {fileID: 846822941}
   - {fileID: 501647812}

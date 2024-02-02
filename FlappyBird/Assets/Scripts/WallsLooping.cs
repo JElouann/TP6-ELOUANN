@@ -19,22 +19,18 @@ public class WallsLooping : MonoBehaviour
 
     private GameObject _clonedWall;
 
-    public static List<GameObject> walls = new List<GameObject>();
-
-
-    void Start()
+    private void Start()
     {
-        StartCoroutine(SpawnWalls(_timeBtwnWallsSpawn));
+        this.StartCoroutine(this.SpawnWalls(this._timeBtwnWallsSpawn));
     }
 
-    private IEnumerator SpawnWalls(float TimeToWait)
+    private IEnumerator SpawnWalls(float timeToWait)
     {
         while (true)
         {
-            yield return new WaitForSeconds(TimeToWait);
-            _randomHeight = Random.Range(_startHeightMin, _startHeightMax);
-            _clonedWall = Instantiate(_walls, new Vector3(12, _randomHeight, 0), Quaternion.identity);
-            walls.Add(_clonedWall);
+            yield return new WaitForSeconds(timeToWait);
+            this._randomHeight = Random.Range(this._startHeightMin, this._startHeightMax);
+            this._clonedWall = Instantiate(this._walls, new Vector3(12, this._randomHeight, 0), Quaternion.identity);
         }
     }
 }

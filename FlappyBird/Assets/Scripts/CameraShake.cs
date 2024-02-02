@@ -5,19 +5,23 @@ public class CameraShake : MonoBehaviour
 {
     [SerializeField]
     private Death _death;
+    [SerializeField]
+    private float _cameraShakeDuration;
+    [SerializeField]
+    private float _cameraShakeMagnitude;
 
-    public IEnumerator Shake(float duration, float magnitude)
+    public IEnumerator Shake()
     {
-        Vector3 _startPos = transform.localPosition;
+        Vector3 _startPos = this.transform.localPosition;
 
         float elapsed = 0.0f;
 
-        while (elapsed < duration)
+        while (elapsed < this._cameraShakeDuration)
         {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+            float x = Random.Range(-1f, 1f) * this._cameraShakeMagnitude;
+            float y = Random.Range(-1f, 1f) * this._cameraShakeMagnitude;
 
-            transform.localPosition = new Vector3(x, y, _startPos.z);
+            this.transform.localPosition = new Vector3(x, y, _startPos.z);
 
             elapsed += Time.deltaTime;
 
@@ -25,7 +29,7 @@ public class CameraShake : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.25f);
-        transform.localPosition = _startPos;
-        _death.End();
+        this.transform.localPosition = _startPos;
+        this._death.End();
     }
 }
