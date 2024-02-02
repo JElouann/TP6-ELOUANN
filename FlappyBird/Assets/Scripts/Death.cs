@@ -1,5 +1,5 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
@@ -16,9 +16,7 @@ public class Death : MonoBehaviour
 
     public void End()
     {
-        // _score.SendMessage("PrintEndScore");
-        Application.Quit();
-        EditorApplication.isPlaying = false;
+        SceneManager.LoadScene("Retry Scene");
     }
 
     private void OnCollisionEnter(Collision collision)
